@@ -1,7 +1,8 @@
 import axios from "axios";
 
 // In your code
-const API_URL = import.meta.env.VITE_API_URL;
+// const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = "https://mern-chat-app-7pza.onrender.com/api";
 
 export const axiosInstance = axios.create({
   baseURL: API_URL,
@@ -16,6 +17,8 @@ export const login = async (email, password) => {
     const res = await axiosInstance.post("/users/login", { email, password });
 
     if (res.data.success) {
+      console.log(res.data);
+      
       return res.data.data; // Return user data if login is successful
     } else {
       throw new Error(res.data.error || "Login failed");
@@ -46,7 +49,7 @@ export const signup = async (name, email, password, avatar) => {
         "Content-Type": "multipart/form-data",
       },
     });
-    console.log(res.data, "res.data");
+
     return res.data;
   } catch (error) {
     throw (

@@ -8,6 +8,7 @@ import Conversation from "../models/conversation.model.js";
 const options = {
   httpOnly: true,
   secure: true,
+  sameSite: "None",
 };
 
 const generateTokens = async (userId) => {

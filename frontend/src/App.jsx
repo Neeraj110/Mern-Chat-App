@@ -18,7 +18,12 @@ function App() {
   const { user } = useSelector((state) => state.auth);
 
   return (
-    <Router>
+    <Router
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}
+    >
       {/* Toast Notifications */}
       <ToastContainer
         className="pl-[4rem] pr-[2rem] mt-[1rem] text-[.8rem] md:p-0"

@@ -51,26 +51,14 @@ function ChatInput({
         avatar: selectedConversation?.avatar,
       },
     };
-
+    socket.emit("new message", {
+      message: messageData,
+      room: selectedConversation?._id,
+    });
+    setMessage("");
     try {
-      console.log("Sending message:", {
-        messageData,
-        room: selectedConversation?._id,
-      });
-
       setLoading(true);
-
-      // Emit to socket first
-      socket.emit("new message", {
-        message: messageData,
-        room: selectedConversation?._id,
-      });
-
-      // Send to API
       await sendMessageToAPI(selectedConversation, message);
-
-      console.log("Message sent successfully");
-      setMessage("");
       fetchMessages();
     } catch (error) {
       console.error("Error sending message:", error);

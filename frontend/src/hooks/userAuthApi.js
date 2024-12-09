@@ -17,8 +17,6 @@ export const login = async (email, password) => {
     const res = await axiosInstance.post("/users/login", { email, password });
 
     if (res.data.success) {
-      console.log(res.data);
-      
       return res.data.data; // Return user data if login is successful
     } else {
       throw new Error(res.data.error || "Login failed");

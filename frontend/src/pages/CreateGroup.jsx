@@ -168,7 +168,7 @@ function CreateGroup() {
         <div className="max-h-64 overflow-y-auto border">
           {isLoading ? (
             <div className="text-center">Loading users...</div>
-          ) : users.length === 0 ? (
+          ) :  users.length === 0 ? (
             <div className="text-center text-gray-500">No users found</div>
           ) : (
             <div className="grid gap-2 ">

@@ -14,5 +14,6 @@ router.use(verifyToken);
 router.route("/logout").post(UserController.logout);
 router.route("/get-allUsers").get(UserController.getAllUsers);
 router.route("/search-user").get(UserController.searchUser);
+routes.route("/update-user").put(UserController.updateProfile);
 
 export default router;
